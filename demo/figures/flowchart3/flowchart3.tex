@@ -1,0 +1,21 @@
+\centering 
+\begin{figure}
+    \begin{tikzpicture}[
+      >=latex',
+      auto
+    ]
+      \node [intg] (kp)  {Is database of concrete clear cover available from construction drawings?};
+      \node [int]  (ki1) [node distance=1.5cm and -1cm,below left=of kp] {Use Jeffreys Prior, Eq xx};
+      \node [int]  (ki2) [node distance=1.5cm and -1cm,below right=of kp] {Use Conjugate Prior, Eq yy};
+      \node [intg] (ki3) [node distance=5cm,below of=kp] {Find Posterior Parameters for population of concrete cover};
+      \node [intg] (ki4) [node distance=2cm,below of=ki3] {Plot the posterior density function to help practitioner pick value of cc};
+
+      \draw[->] (kp) -- ($(kp.south)+(0,-0.75)$) -| (ki1) node[above,pos=0.25] {Yes} ;
+      \draw[->] (kp) -- ($(kp.south)+(0,-0.75)$) -| (ki2) node[above,pos=0.25] {No};
+      \draw[->] (ki1) |- (ki3);
+      \draw[->] (ki2) |- (ki3);
+      \draw[->] (ki3) -- (ki4);
+    \end{tikzpicture}
+    \caption{Data Fusion system using Bayesian approach for updating Compressive strength $f_c$ in case of data from Literature and core compressive strength data for granite}
+    \label{fig:datafusionindirectdirectfc}
+\end{figure}

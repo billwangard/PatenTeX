@@ -1,0 +1,15 @@
+\begin{figure}
+\centering
+\begin{tikzpicture}
+  \begin{polaraxis}[
+      domain  = -14400:14400,
+      samples = 3000,
+      colormap/cool,
+      hide axis
+    ]
+    \addplot[no markers, mesh, opacity=0.5] {1-sin(40*x/39};
+  \end{polaraxis}
+\end{tikzpicture}
+\caption{A spiral}
+\label{fig:spiral}
+\end{figure}

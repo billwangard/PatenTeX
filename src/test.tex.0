@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{pstricks}
+\def\alab#1{#1}
+\def\alabdup#1{#1}
+\def\flabdup#1{\underline{#1}}
+\def\flab#1{\underline{#1}}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage[abspath]{currfile}
+\begin{document}
+\def\svgwidth{\textwidth}
+\input{DIR}
+\end{document}

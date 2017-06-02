@@ -1,0 +1,14 @@
+\select@language {english}
+\contentsline {chapter}{Contents}{1}{section*.1}
+\contentsline {section}{Background}{1}{section*.2}
+\contentsline {section}{Field of the Invention}{2}{section*.3}
+\contentsline {section}{Objects of the Invention}{2}{section*.4}
+\contentsline {section}{Brief Summary of the Invention}{3}{section*.5}
+\contentsline {section}{Brief Description of the Drawings}{3}{section*.6}
+\contentsline {paragraph}{}{3}{section*.7}
+\contentsline {paragraph}{}{3}{section*.8}
+\contentsline {paragraph}{}{3}{section*.9}
+\contentsline {section}{Detailed Description of the Invention}{5}{section*.10}
+\contentsline {section}{Detailed Description of the Preferred Embodiments}{5}{section*.11}
+\contentsline {section}{Claims}{7}{section*.12}
+\contentsline {section}{Abstract}{7}{section*.13}

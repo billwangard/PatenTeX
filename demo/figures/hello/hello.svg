@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created by diasvg.py -->
+<svg width="11.600cm" height="5.300cm" viewBox="24.450 -20.550 36.050 -15.250"
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="24.500" y="-20.500" width="5.500" height="2.500" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="24.500" y="-20.500" width="5.500" height="2.500" fill="none" stroke="#000000" stroke-width="0.100" />
+<text x="29.550" y="-19.055"  fill="#000000" text-anchor="end" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+HELLO</text>
+<rect x="30.500" y="-20.500" width="5.500" height="2.500" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="30.500" y="-20.500" width="5.500" height="2.500" fill="none" stroke="#000000" stroke-width="0.100" />
+<text x="30.950" y="-19.055"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+THERE</text>
+<rect x="25.500" y="-17.000" width="0.838" height="1.200" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="25.500" y="-17.000" width="0.838" height="1.200" fill="none" stroke="#000000" stroke-width="0.100" />
+<text x="25.919" y="-16.205"  fill="#000000" text-anchor="middle" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+A</text>
+<line x1="26.338" y1="-17.000" x2="27.250" y2="-18.000" stroke="#000000" stroke-width="0.100" />
+<rect x="32.780" y="-16.500" width="1.278" height="1.200" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="32.780" y="-16.500" width="1.278" height="1.200" fill="none" stroke="#000000" stroke-width="0.100" />
+<text x="33.419" y="-15.705"  fill="#000000" text-anchor="middle" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+B</text>
+<line x1="33.419" y1="-16.500" x2="33.081" y2="-18.000" stroke="#000000" stroke-width="0.100" />
+</svg>

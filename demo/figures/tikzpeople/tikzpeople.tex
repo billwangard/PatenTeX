@@ -1,0 +1,16 @@
+\begin{figure}
+\begin{tikzpicture}
+
+\node[name=a,shape=police,minimum
+size=1cm,xshift=-1.25cm] {};
+\node[name=b,shape=criminal,minimum
+size=1cm,mirrored,xshift=1.25cm] {};
+\node[ellipse callout, draw,yshift= .3cm,
+callout absolute pointer={(a.mouth)},
+font=\tiny] {Hey!};
+\node[ellipse callout, draw, yshift=-.3cm,
+callout absolute pointer={(b.mouth)},
+font=\tiny] {What?};
+\end{tikzpicture}
+\end{figure}
+

@@ -1,0 +1,12 @@
+\ZeigerdiagrammText{60}{0}{2.7}{1.8}
+
+\npar
+
+% inductivity / coil
+\ZeigerdiagrammText{60}{-90}{2.7}{1.8}
+
+\npar
+
+% capacity / conductor
+\ZeigerdiagrammText{60}{90}{2.7}{1.8}
+

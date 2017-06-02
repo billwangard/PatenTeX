@@ -1,0 +1,58 @@
+#!/bin/bash
+
+base="temp"
+
+f="$base.tex"
+p=`pwd`
+b=`basename $p`
+
+if [ -f "defs.tex" ]; then
+echo "defs.tex file found..."
+cat>$f<<EOF
+%\documentclass[float=false,preview=true,class=scrartcl,fontsize=11pt]{standalone}
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc,matrix,shapes,arrows,positioning,chains}
+\usepackage{pstricks}
+\input{defs}
+\def\alab#1{#1}
+\def\alabdup#1{#1}
+\def\flabdup#1{\underline{#1}}
+\def\flab#1{\underline{#1}}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage[abspath]{currfile}
+\begin{document}
+\def\svgwidth{\textwidth}
+\input{$b}
+\end{document}
+EOF
+else
+echo "No defs.tex file found..."
+cat>$f<<EOF
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc,matrix,shapes,arrows,positioning,chains}
+\usepackage{pstricks}
+\def\alab#1{#1}
+\def\alabdup#1{#1}
+\def\flabdup#1{\underline{#1}}
+\def\flab#1{\underline{#1}}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage[abspath]{currfile}
+\begin{document}
+\def\svgwidth{\textwidth}
+\input{$b}
+\end{document}
+EOF
+fi
+
+%pdflatex --recorder -interaction=batchmode $f  
+%pdflatex --recorder -interaction=batchmode $f 
+
+pdflatex --recorder --shell-escape $f  
+pdflatex --recorder --shell-escape $f 
+
+mv $base.pdf figure.pdf
+rm -f $base.* temp*

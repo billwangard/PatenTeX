@@ -1,0 +1,42 @@
+\begin{tikzpicture}
+\coordinate (star) at (0,-1);
+\path (star) +(-50:7) coordinate (rhs) +(-130:7) coordinate (lhs);
+\draw[brown!50!black,line width=5mm,line cap=round] (star) ++(-90:6.8) -- ++(0,-1) coordinate (base);
+\node[scale=-1,trapezium,fill=black,minimum size=1cm] at (base) {};
+\foreach \height/\colour in {%
+  .2/blue,
+  .4/yellow,
+  .6/red,
+  .8/orange,
+  1/pink%
+} {
+  \draw[tinsel=\colour] ($(star)!\height!(lhs)$) to[bend right] ($(star)!\height!(rhs)$);
+}
+\path (star);
+\pgfgetlastxy{\starx}{\stary}
+\begin{scope}[xshift=\starx,yshift=\stary,yshift=-7cm]
+\draw[color=green!50!black, l-system={rule set={S -> [+++G][---G]TS,  G -> +H[-G]L, H -> -G[+H]L, T -> TL, L -> [-FFF][+FFF]F}, step=4pt, angle=18, axiom=+++++SLFFF, order=11}] lindenmayer system -- cycle;
+\end{scope}
+\foreach \height/\colour in {%
+  .1/pink,
+  .3/red,
+  .5/yellow,
+  .7/blue,
+  .9/orange%
+} {
+  \draw[tinsel=\colour] ($(star)!\height!(lhs)$) to[bend right] ($(star)!\height!(rhs)$);
+}
+\foreach \height in {.15,.35,...,1} {
+  \draw[lights]  ($(star)!\height!(lhs)$) to[bend right] ($(star)!\height!(rhs)$);
+}
+\foreach \angle/\colour in {
+  -50/red,
+  -70/yellow,
+  -90/blue,
+  -110/pink,
+  -130/purple%
+} {
+  \draw[baubles=\colour] (star) -- ++(\angle:7);
+}
+\node[star,star point ratio=2.5,fill=yellow,minimum size=1cm] at (star) {};
+\end{tikzpicture}

@@ -1,0 +1,21 @@
+These files are for drafting a U.S. Patent Application using LaTeX or LyX.
+
+src/
+
+	patentex.cls - LaTeX class file based on memoir
+	genfig       - bash script to create figure based on tikz file
+
+demo/
+	PatApp.tex   - Sample patent application
+
+
++++++++++++++++++++
+INSTALL INFORMATION
++++++++++++++++++++
+
+To allow LaTeX to find the patentex class file, ADD the following
+line to your .bashrc file:
+
+  export TEXINPUTS="<PATH TO DIRECTORY CONTAINING patentex.cls>:"
+
+NOTE:  Make sure you include the ending colon.
