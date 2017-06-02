@@ -31,8 +31,11 @@
 	\def\lawyerCity{#3}
 	\def\lawyerPhone{#4}
 	\def\lawyerNumber{#5}
+	
+	
           }
 
+\def\skipline{\vspace{\baselineskip}}
 
 % PAGE SIZE SETTINGS
 
@@ -73,6 +76,8 @@
 \usepackage{setspace}
 \usetikzlibrary{arrows,positioning,fit,shapes,calc}
 \usepackage[strings]{underscore}
+%\usepackage[nofiglist,nomarkers,figuresonly]{endfloat}
+
 
 \newrefformat{cla}{claim \ref{#1}}
 
@@ -96,6 +101,11 @@
 \def\inventorTitleName{\ifnum\the\@inventornumber>1{Inventors}\else{Inventor}\fi}
 \def\inventorNames{\inventorListName{1}{\ifnum\the\@inventornumber>1{,~et~al}\fi}}
 \def\etal{\ifnum\the\@inventornumber>1{et~al}\fi}
+
+
+
+
+
 
 \newcommand{\patentTitlePage}{%
 
@@ -159,6 +169,7 @@ Title: \MakeUppercase{\thetitle}
 
 \vfill
 
+\noindent
 \begin{minipage}[t]{0.5\textwidth}
 \raggedright
 \textbf{Attorney}\\
@@ -184,13 +195,99 @@ Title: \MakeUppercase{\thetitle}
 \textbf{\underline{\MakeUppercase{\inventorTitleName}}}
 \end{center}
 
-\vskip  0.5in 
+\vspace{3\baselineskip}
 
+\noindent
+\begin{minipage}[t]{0.35\textwidth}
+\raggedright
+\textbf{Inventor}\\
+\skipline
+\inventorListName{1}\\
+\skipline
+\skipline
+\inventorListName{2}\\
+\skipline
+\skipline
+\inventorListName{3}\\
+\skipline
+\skipline
+\inventorListName{4}\\
+\skipline
+\skipline
+\inventorListName{5}\\
+\skipline
+\skipline
+\inventorListName{6}\\
+\skipline
+\skipline
+\inventorListName{7}\\
+\skipline
+\skipline
+\inventorListName{8}
+\end{minipage}%
+\begin{minipage}[t]{0.45\textwidth}
+\raggedright
+\textbf{Address}\\
+\skipline
+\inventorListAddress{1}\\
+\inventorListCity{1}\\
+\skipline
+\inventorListAddress{2}\\
+\inventorListCity{2}\\
+\skipline
+\inventorListAddress{3}\\
+\inventorListCity{3}\\
+\skipline
+\inventorListAddress{4}\\
+\inventorListCity{4}\\
+\skipline
+\inventorListAddress{5}\\
+\inventorListCity{5}\\
+\skipline
+\inventorListAddress{6}\\
+\inventorListCity{6}\\
+\skipline
+\inventorListAddress{7}\\
+\inventorListCity{7}\\
+\skipline
+\inventorListAddress{8}\\
+\inventorListCity{8}\\
+\end{minipage}%
+\begin{minipage}[t]{0.2\textwidth}
+\raggedleft
+\textbf{Phone}\\
+\skipline
+\inventorListPhone{1}\\
+\skipline
+\skipline
+\inventorListPhone{2}\\
+\skipline
+\skipline
+\inventorListPhone{3}\\
+\skipline
+\skipline
+\inventorListPhone{4}\\
+\skipline
+\skipline
+\inventorListPhone{5}\\
+\skipline
+\skipline
+\inventorListPhone{6}\\
+\skipline
+\skipline
+\inventorListPhone{7}\\
+\skipline
+\skipline
+\inventorListPhone{8}
+\end{minipage}%
+
+\iffalse
+\vskip  0.5in 
  \newcolumntype{b}{>{\hsize=0.75\hsize}X}
- \newcolumntype{c}{>{\hsize=1\hsize}X}
+ \newcolumntype{c}{>{\hsize=2\hsize}X}
  \newcolumntype{d}{>{\hsize=0.75\hsize}X}
  \noindent\small{
- \begin{tabularx}{\textwidth}{X X X}  \textbf{Inventor} & \textbf{Address} & \textbf{Phone Number} \\
+ \begin{tabularx}{\textwidth}{l X r}  \textbf{Inventor} & \textbf{Address} & \textbf{Phone Number} \\
  \addlinespace
  \inventorListName{1} & \inventorListAddress{1} & \inventorListPhone{1}  \\
                       & \inventorListCity{1}    &                        \\
@@ -217,7 +314,7 @@ Title: \MakeUppercase{\thetitle}
                       & \inventorListCity{8}    &                        
  \end{tabularx}
  }
-
+\fi
 
 \end{titlingpage}
 
@@ -352,18 +449,18 @@ Title: \MakeUppercase{\thetitle}
 \renewcommand{\fnum@figure}{\huge{\textbf{FIG.~\thefigure} \hspace{0.25in}}}
 
 
-\newcommand{\pfigure}[6]{
-\paragraph{}{#6}
-\begin{figure}[#3]
+\newcommand{\pfigure}[4]{
+\begin{figure}[p]
 \centering
-\def\svgwidth{#2\textwidth}
-\import{#4}{#5}
+\def\svgwidth{#4\textwidth}
+\import{#2}{#3}
 \vspace*{1\onelineskip}
 \caption{}
 \vspace*{2\onelineskip}
 \label{#1}
 \end{figure}
 }
+
 
 \endinput
 %%
