@@ -9,15 +9,17 @@
 \ProvidesClass{patentex}[2017/05/30  Patent Application Class]
 \DeclareOption{draft}{\PatentDraftModetrue}
 \ProcessOptions
-\LoadClass[12pt]{memoir}[1996/10/24]
+\LoadClass[12pt,oldfontcommands]{memoir}[1996/10/24]
+
+%\usepackage{tgadventor}
+%\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+%\usepackage[T1]{fontenc}
 
 
 
 \newcommand{\setDocketNumber}{\def\patentNumber}
-
 \newcommand{\DocumentVersion}{\def\patentDocumentVersion}
 \newcommand{\setDraftMode}{\PatentDraftModetrue}
-
 \newcommand{\Assignee}[4]{
         \author{#1}
 	\def\assigneeName{#1}
@@ -50,11 +52,13 @@
 \DeclareGraphicsExtensions{ .eps, .jpg }
 \fi
 
-\usepackage[T1]{fontenc}
+
+
+
 
 %\usepackage[paper=letterpaper,hmargin=1in,vmargin=1in,showframe]{geometry}
-%\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in,showframe]{geometry}
-\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in]{geometry}
+\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in,showframe]{geometry}
+%\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in]{geometry}
 \usepackage{lipsum}
 \usepackage{amsmath}
 \usepackage{enumitem}
@@ -101,9 +105,6 @@
 \def\inventorTitleName{\ifnum\the\@inventornumber>1{Inventors}\else{Inventor}\fi}
 \def\inventorNames{\inventorListName{1}{\ifnum\the\@inventornumber>1{,~et~al}\fi}}
 \def\etal{\ifnum\the\@inventornumber>1{et~al}\fi}
-
-
-
 
 
 
@@ -188,164 +189,9 @@ Title: \MakeUppercase{\thetitle}
 \assigneePhone
 \end{minipage}%
 
+\makeInventorPage
 
-\newpage
 
-\begin{center}
-\textbf{\underline{\MakeUppercase{\inventorTitleName}}}
-\end{center}
-
-\vspace{3\baselineskip}
-
-\noindent
-\begin{minipage}[t]{0.35\textwidth}
-\raggedright
-\textbf{Inventor}\\
-
-\skipline
-\inventorListName{1}
-
-\skipline
-\skipline
-\inventorListName{2}
-
-\skipline
-\skipline
-\inventorListName{3}
-
-\skipline
-\skipline
-\inventorListName{4}
-
-\skipline
-\skipline
-\inventorListName{5}
-
-\skipline
-\skipline
-\inventorListName{6}
-
-\skipline
-\skipline
-\inventorListName{7}
-
-\skipline
-\skipline
-\inventorListName{8}
-\end{minipage}%
-\begin{minipage}[t]{0.45\textwidth}
-\raggedright
-\textbf{Address}\\
-
-\skipline
-\inventorListAddress{1}
-
-\inventorListCity{1}
-
-\skipline
-\inventorListAddress{2}
-
-\inventorListCity{2}
-
-\skipline
-\inventorListAddress{3}
-
-\inventorListCity{3}
-
-\skipline
-\inventorListAddress{4}
-
-\inventorListCity{4}
-
-\skipline
-\inventorListAddress{5}
-
-\inventorListCity{5}
-
-\skipline
-\inventorListAddress{6}
-
-\inventorListCity{6}
-
-\skipline
-\inventorListAddress{7}
-
-\inventorListCity{7}
-
-\skipline
-\inventorListAddress{8}
-\inventorListCity{8}
-\end{minipage}%
-\begin{minipage}[t]{0.2\textwidth}
-\raggedleft
-\textbf{Phone}\\
-
-\skipline
-\inventorListPhone{1}
-
-\skipline
-\skipline
-\inventorListPhone{2}
-
-\skipline
-\skipline
-\inventorListPhone{3}
-
-\skipline
-\skipline
-\inventorListPhone{4}
-
-\skipline
-\skipline
-\inventorListPhone{5}
-
-\skipline
-\skipline
-\inventorListPhone{6}
-
-\skipline
-\skipline
-\inventorListPhone{7}
-
-\skipline
-\skipline
-\inventorListPhone{8}
-\end{minipage}%
-
-\iffalse
-\vskip  0.5in 
- \newcolumntype{b}{>{\hsize=0.75\hsize}X}
- \newcolumntype{c}{>{\hsize=2\hsize}X}
- \newcolumntype{d}{>{\hsize=0.75\hsize}X}
- \noindent\small{
- \begin{tabularx}{\textwidth}{l X r}  \textbf{Inventor} & \textbf{Address} & \textbf{Phone Number} \\
- \addlinespace
- \inventorListName{1} & \inventorListAddress{1} & \inventorListPhone{1}  \\
-                      & \inventorListCity{1}    &                        \\
- \addlinespace
- \inventorListName{2} & \inventorListAddress{2} & \inventorListPhone{2}  \\
-                      & \inventorListCity{2}    &                        \\
- \addlinespace
- \inventorListName{3} & \inventorListAddress{3} & \inventorListPhone{3}  \\
-                      & \inventorListCity{3}    &                        \\
- \addlinespace
- \inventorListName{4} & \inventorListAddress{4} & \inventorListPhone{4}  \\
-                      & \inventorListCity{4}    &                        \\
- \addlinespace
- \inventorListName{5} & \inventorListAddress{5} & \inventorListPhone{5}  \\
-                      & \inventorListCity{5}    &                        \\
- \addlinespace
- \inventorListName{6} & \inventorListAddress{6} & \inventorListPhone{6}  \\
-                      & \inventorListCity{6}    &                        \\
- \addlinespace
- \inventorListName{7} & \inventorListAddress{7} & \inventorListPhone{7}  \\
-                      & \inventorListCity{7}    &                        \\
- \addlinespace
- \inventorListName{8} & \inventorListAddress{8} & \inventorListPhone{8}  \\
-                      & \inventorListCity{8}    &                        
- \end{tabularx}
- }
-\fi
 
 \end{titlingpage}
 
@@ -355,12 +201,44 @@ Title: \MakeUppercase{\thetitle}
 
 }
 
+
+
+
 \renewcommand{\maketitle}{
 \patentTitlePage
 \patentStart
 }
 
 
+\newcommand{\makeInventorPage}{
+\newpage
+\DoubleSpacing
+
+%% INVENTOR OR INVENTORS?
+\begin{center}
+\textbf{\underline{\MakeUppercase{\inventorTitleName}}}
+\end{center}
+
+%%% TABLE OF INVENTORS
+\par\noindent
+\makebox[0.25\textwidth][l]{\textbf{Inventor}}%
+\makebox[0.55\textwidth][l]{\textbf{Address}}%
+\makebox[0.15\textwidth][l]{\textbf{Phone}}%
+
+\footnotesize{
+\@inventornumber=1
+\loop
+\expandafter\ifx\csname inventorname \the\@inventornumber\endcsname\relax
+ \else
+   \par\noindent
+   \makebox[0.25\textwidth][l]{\textbf{\inventorListName{\the\@inventornumber}}}%
+   \makebox[0.55\textwidth][l]{\inventorListAddress{\the\@inventornumber},\inventorListCity{\the\@inventornumber}}%
+   \makebox[0.1\textwidth][l]{\inventorListPhone{\the\@inventornumber}}%
+   \advance\@inventornumber by 1
+   \repeat
+\fi
+}
+}
 
 % use this command to put a comment in the margin
 \newcommand{\patentComment}[1]{
