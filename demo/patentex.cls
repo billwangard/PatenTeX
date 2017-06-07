@@ -57,8 +57,8 @@
 
 
 %\usepackage[paper=letterpaper,hmargin=1in,vmargin=1in,showframe]{geometry}
-\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in,showframe]{geometry}
-%\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in]{geometry}
+%\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in,showframe]{geometry}
+\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in]{geometry}
 \usepackage{lipsum}
 \usepackage{amsmath}
 \usepackage{enumitem}
@@ -107,9 +107,6 @@
 \def\etal{\ifnum\the\@inventornumber>1{et~al}\fi}
 
 
-
-\newcommand{\patentTitlePage}{%
-
 \ifx\assigneeName\undefined
 \global\edef\assigneeName{~}
 \global\edef\confidentialAssignee{~}
@@ -129,90 +126,68 @@
 \ifx\patentDocumentVersion\undefined\global\edef\patentDocumentVersion{0.0}\fi
 \ifx\thedate\undefined\global\edef\thedate{\today}\fi
 
+
+
+\newcommand{\patentTitlePage}{%
+
 \ifPatentDraftMode
-
-%not patent office mode
-\pagestyle{title}
-\makeoddhead{myheadings}
-{\confidentialAssignee}
-{}
-{\scriptsize{Draft of \thedate\\version \patentDocumentVersion}}
-\makeevenhead{myheadings}
-{\confidentialAssignee}
-{}
-{\scriptsize{Draft of \thedate\\version \patentDocumentVersion}}
-
+   %not patent office mode
+   \pagestyle{title}
+   \makeoddhead{myheadings}
+   {\confidentialAssignee}
+   {}
+   {\scriptsize{Draft of \thedate\\version \patentDocumentVersion}}
+   \makeevenhead{myheadings}
+   {\confidentialAssignee}
+   {}
+   {\scriptsize{Draft of \thedate\\version \patentDocumentVersion}}
 \else
-
-%patent office mode
-\pagestyle{title}
-\makeoddhead{myheadings}
-{}{}{\scriptsize{\patentNumber}}
-\makeevenhead{myheadings}
-{}{}{\scriptsize{\patentNumber}}
-
-
+   %patent office mode
+   \pagestyle{title}
+   \makeoddhead{myheadings}
+   {}{}{\scriptsize{\patentNumber}}
+   \makeevenhead{myheadings}
+   {}{}{\scriptsize{\patentNumber}}
 \fi
 
+
+
 \begin{titlingpage}
-\aliaspagestyle{titlingpage}{myheadings}
+
+%\aliaspagestyle{titlingpage}{myheadings}
+
 \begin{center}
-
-\vspace*{1in}
-
+%\vspace*{2in}
 \Large{\textbf{APPLICATION FOR UNITED STATES LETTERS PATENT}}
+\vspace*{4in}
 
-\vspace*{1in}
+\underline{Title}
 
-Title: \MakeUppercase{\thetitle} 
+
+\MakeUppercase{\thetitle} 
 
 \end{center}
 
 \vfill
 
-\noindent
-\begin{minipage}[t]{0.5\textwidth}
-\raggedright
-\textbf{Attorney}\\
-\lawyerName \\
-\lawyerAddress \\
-\lawyerCity \\
-\lawyerPhone \\
-\lawyerNumber 
-\end{minipage}%
-\begin{minipage}[t]{0.5\textwidth}
-\raggedleft
-\textbf{Assignee}\\
-\assigneeName \\
-\assigneeAddress \\
-\assigneeCity \\
-\assigneePhone
-\end{minipage}%
-
-\makeInventorPage
-
-
-
-\end{titlingpage}
-
+\setlength{\parindent}{0em} 
+\makebox[0.5\textwidth][l]{\textbf{Attorney}}%
+\makebox[0.5\textwidth][r]{\textbf{Assignee}}\\%
+\makebox[0.5\textwidth][l]{\lawyerName}%
+\makebox[0.5\textwidth][r]{\assigneeName}\\%
+\makebox[0.5\textwidth][l]{\lawyerAddress}%
+\makebox[0.5\textwidth][r]{\assigneeAddress}\\%
+\makebox[0.5\textwidth][l]{\lawyerCity}%
+\makebox[0.5\textwidth][r]{\assigneeCity}\\%
+\makebox[0.5\textwidth][l]{\lawyerPhone}%
+\makebox[0.5\textwidth][r]{\assigneePhone}\\%
+\makebox[0.5\textwidth][l]{ID: \lawyerNumber}
+\setlength{\parindent}{1em}
 
 
 \DoubleSpacing
 
-}
-
-
-
-
-\renewcommand{\maketitle}{
-\patentTitlePage
-\patentStart
-}
-
-
-\newcommand{\makeInventorPage}{
 \newpage
-\DoubleSpacing
 
 %% INVENTOR OR INVENTORS?
 \begin{center}
@@ -221,9 +196,10 @@ Title: \MakeUppercase{\thetitle}
 
 %%% TABLE OF INVENTORS
 \par\noindent
-\makebox[0.25\textwidth][l]{\textbf{Inventor}}%
+%\makebox[0.04\textwidth][l]{}%
+\makebox[0.25\textwidth][l]{\textbf{Name}}%
 \makebox[0.55\textwidth][l]{\textbf{Address}}%
-\makebox[0.15\textwidth][l]{\textbf{Phone}}%
+\makebox[0.2\textwidth][r]{\textbf{Phone}}%
 
 \footnotesize{
 \@inventornumber=1
@@ -231,14 +207,24 @@ Title: \MakeUppercase{\thetitle}
 \expandafter\ifx\csname inventorname \the\@inventornumber\endcsname\relax
  \else
    \par\noindent
-   \makebox[0.25\textwidth][l]{\textbf{\inventorListName{\the\@inventornumber}}}%
+   %\makebox[0.04\textwidth][l]{\the\@inventornumber.}%
+   \makebox[0.25\textwidth][l]{\inventorListName{\the\@inventornumber}}%
    \makebox[0.55\textwidth][l]{\inventorListAddress{\the\@inventornumber},\inventorListCity{\the\@inventornumber}}%
-   \makebox[0.1\textwidth][l]{\inventorListPhone{\the\@inventornumber}}%
+   \makebox[0.2\textwidth][r]{\inventorListPhone{\the\@inventornumber}}%
    \advance\@inventornumber by 1
    \repeat
-\fi
 }
+\end{titlingpage}
 }
+
+\renewcommand{\maketitle}{
+\patentTitlePage
+\patentStart
+}
+
+
+
+
 
 % use this command to put a comment in the margin
 \newcommand{\patentComment}[1]{
