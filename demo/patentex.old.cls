@@ -4,92 +4,87 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}
 
-\newif\ifDraft
-\Draftfalse
+\newif\ifPatentDraftMode\PatentDraftModefalse
 
 \ProvidesClass{patentex}[2017/05/30  Patent Application Class]
-\DeclareOption{draft}{\Drafttrue}
+\DeclareOption{draft}{\PatentDraftModetrue}
 \ProcessOptions
-\LoadClass[12pt]{report}[1996/10/24]
+\LoadClass[12pt]{memoir}[1996/10/24]
+%\LoadClass[12pt]{article}[1996/10/24]
+
+%\usepackage{tgadventor}
+%\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+%\usepackage[T1]{fontenc}
 
 \usepackage{ifpdf}
 
-\newcommand{\setTitle}{\def\patentTitle}
-\newcommand{\setDate}{\def\patentDate}
 \newcommand{\setDocketNumber}{\def\patentNumber}
 \newcommand{\DocumentVersion}{\def\patentDocumentVersion}
 \newcommand{\setDraftMode}{\PatentDraftModetrue}
-\newcommand{\Assignee}[4]{\author{#1}
-	                  \def\assigneeName{#1}
-	                  \def\assigneeAddress{#2}
-	                  \def\assigneeCity{#3}
-	                  \def\assigneePhone{#4}}
-\newcommand{\Lawyer}[5]{\def\lawyerName{#1}
-	                \def\lawyerAddress{#2}
-	                \def\lawyerCity{#3}
-	                \def\lawyerPhone{#4}
-	                \def\lawyerNumber{#5}}
+\newcommand{\Assignee}[4]{
+        \author{#1}
+	\def\assigneeName{#1}
+	\def\assigneeAddress{#2}
+	\def\assigneeCity{#3}
+	\def\assigneePhone{#4}}
 
+\newcommand{\Lawyer}[5]{ 
+	\def\lawyerName{#1}
+	\def\lawyerAddress{#2}
+	\def\lawyerCity{#3}
+	\def\lawyerPhone{#4}
+	\def\lawyerNumber{#5}
+	
+	
+          }
 
-% PAGE SIZE SETTINGS
 \def\skipline{\vspace{\baselineskip}}
 
+% PAGE SIZE SETTINGS
 
 \ifpdf
 \usepackage[pdftex]{graphicx}
+%No Commas in the PDF Title!?!
 %\usepackage[hyperindex=true,pdfusetitle,bookmarks=true,extension=pdf,linkcolor=black,colorlinks=true,hyperfootnotes=true,pdffitwindow=true,pdftoolbar=true,pdfmenubar=true,debug=false,pagebackref=true ]{hyperref}
-\usepackage[extension=pdf,colorlinks=true,linkcolor=black,backref=true]{hyperref}
-%\usepackage[extension=pdf,linkcolor=black,colorlinks=true,debug=false]{hyperref}
+\usepackage[extension=pdf,colorlinks=true,linkcolor=black]{hyperref}
 \DeclareGraphicsExtensions{ .pdf, .jpg, .tif}
 \else
 \usepackage[dvips]{graphicx}
 \DeclareGraphicsExtensions{ .eps, .jpg }
 \fi
 
-\ifDraft
-\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in,showframe]{geometry}
-\else
+
+
+
+
+%\usepackage[paper=letterpaper,hmargin=1in,vmargin=1in,showframe]{geometry}
+%\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in,showframe]{geometry}
 \usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in]{geometry}
-\fi
-\usepackage{titlesec}
+%\usepackage{titlesec}
+%\usepackage{sectsty}
 \usepackage{lipsum}
 \usepackage{amsmath}
+%\usepackage{enumitem}
 \usepackage{memhfixc}
 \usepackage{xspace}
-\usepackage[utf8]{inputenc}
-%\usepackage{palatino}
-
-\usepackage[scaled]{helvet}
-\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
-\usepackage[T1]{fontenc}
-
-%\usepackage{tgheros}
-% \usepackage[default,osfigures,scale=0.95]{opensans} %% Alternatively
-%% use the option 'defaultsans' instead of 'default' to replace the
-%% sans serif font only.
-%\usepackage[T1]{fontenc}
-
-% \usepackage{tgheros}
-% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
-% \usepackage[T1]{fontenc}
-
+%\usepackage{prettyref}
+\usepackage{charter}
 \usepackage{babel}
 \usepackage{pgf,tikz}
 \usepackage{import}
 \usepackage[figuresright]{rotating}
+%\usepackage{todonotes}
 \usepackage[usenames,dvipsnames]{pstricks}
+%\usepackage{epsfig}
 \usepackage{pst-grad}
 \usepackage{pst-plot}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{setspace}
-\usepackage{caption}
-\captionsetup[figure]{labelsep=none}
-\usepackage[normalem]{ulem}
 \usetikzlibrary{arrows,positioning,fit,shapes,calc}
-
-% Default double spacing
-\doublespacing
+%\usepackage[strings]{underscore}
+%\usepackage[nofiglist,nomarkers,figuresonly]{endfloat}
+%\usepackage{ulem}
 
 % Annotation Labels and References
 \newcounter{alabelno}
@@ -97,8 +92,8 @@
    \refstepcounter{alabelno}%
    \thealabelno\label{#1}}
 
-
 % Labels for the figure .tex files
+
 \def\alab#1{\alabel{#1}}
 \def\flab#1{\underline{\alabel{#1}}}
 \def\alabdup#1{\ref{#1}}
@@ -126,8 +121,7 @@
 % List of inventors (in header)
 \def\inventorNames{\inventorListName{1}{\ifnum\the\@inventornumber>1{,~et~al}\fi}}
 
-\ifx\patentTitle\undefined\global\edef\patentTitle{~}\fi
-\ifx\patentDate\undefined\global\edef\patentDate{~}\fi
+
 \ifx\assigneeName\undefined
 \global\edef\assigneeName{~}
 \global\edef\confidentialAssignee{~}
@@ -147,36 +141,44 @@
 \ifx\patentDocumentVersion\undefined\global\edef\patentDocumentVersion{0.0}\fi
 \ifx\thedate\undefined\global\edef\thedate{\today}\fi
 
-\renewcommand{\maketitle}{
-  \begin{titlepage}
-    \frontPage
-    \inventorPage
-  \end{titlepage}
-  \newpage
-%\setcounter{secnumdepth}{-1}
-%\setcounter{tocdepth}{1}
-%\setbeforesecskip{0pc}
-%\setaftersecskip{0pc}
-%\parskip=10pt
-\begin{center}\Large\scshape{\bfseries{\patentTitle}}\end{center}
-}
 
-\newcommand{\frontPage}
-{
-\singlespacing
+\newcommand{\patentTitlePage}{%
+
+\ifPatentDraftMode
+   %not patent office mode
+   \pagestyle{title}
+   \makeoddhead{myheadings}
+   {\confidentialAssignee}
+   {}
+   {\scriptsize{Draft of \thedate\\version \patentDocumentVersion}}
+   \makeevenhead{myheadings}
+   {\confidentialAssignee}
+   {}
+   {\scriptsize{Draft of \thedate\\version \patentDocumentVersion}}
+\else
+   %patent office mode
+   \pagestyle{title}
+   \makeoddhead{myheadings}
+   {}{}{\scriptsize{\patentNumber}}
+   \makeevenhead{myheadings}
+   {}{}{\scriptsize{\patentNumber}}
+\fi
+
+
+
+\begin{titlingpage}
+
+%\aliaspagestyle{titlingpage}{myheadings}
+
 \begin{center}
 %\vspace*{2in}
 \Large{\textbf{APPLICATION FOR UNITED STATES LETTERS PATENT}}
 \vspace*{3in}
 
-\underline{TITLE}
+\underline{Title}
 
-\skipline
 
-{\Large\scshape\bfseries{\patentTitle}}
-
-\vspace*{1 in}
-\patentDate
+\MakeUppercase{\thetitle} 
 
 \end{center}
 
@@ -195,12 +197,11 @@
 \makebox[0.5\textwidth][r]{\assigneePhone}\\%
 \makebox[0.5\textwidth][l]{ID: \lawyerNumber}
 \setlength{\parindent}{1em}
-}
 
-\newcommand{\inventorPage}
-{
+
+\DoubleSpacing
+
 \newpage
-\doublespacing
 
 %% INVENTOR OR INVENTORS?
 \begin{center}
@@ -214,7 +215,7 @@
 \makebox[0.55\textwidth][l]{\textbf{Address}}%
 \makebox[0.2\textwidth][r]{\textbf{Phone}}%
 
-\normalsize{
+\footnotesize{
 \@inventornumber=1
 \loop
 \expandafter\ifx\csname inventorname \the\@inventornumber\endcsname\relax
@@ -222,11 +223,57 @@
    \par\noindent
    %\makebox[0.04\textwidth][l]{\the\@inventornumber.}%
    \makebox[0.25\textwidth][l]{\inventorListName{\the\@inventornumber}}%
-   \makebox[0.55\textwidth][l]{\inventorListAddress{\the\@inventornumber},~\inventorListCity{\the\@inventornumber}}%
+   \makebox[0.55\textwidth][l]{\inventorListAddress{\the\@inventornumber},\inventorListCity{\the\@inventornumber}}%
    \makebox[0.2\textwidth][r]{\inventorListPhone{\the\@inventornumber}}%
    \advance\@inventornumber by 1
    \repeat
 }
+\end{titlingpage}
+}
+
+\renewcommand{\maketitle}{
+\patentTitlePage
+\patentStart
+}
+
+
+\newcommand{\patentStart}{
+
+\iffalse
+\ifPatentDraftMode
+%not patent office mode
+\pagestyle{myheadings}
+\makeoddhead{myheadings}
+{\confidentialAssignee}
+{}{\scriptsize{Draft of \thedate\\version \patentDocumentVersion}}
+\makeevenhead{myheadings}
+{\confidentialAssignee}
+{}{\scriptsize{Draft of \thedate\\version \patentDocumentVersion}}
+\makeoddfoot{myheadings}{\thepage}{}{\scshape{\tiny{\thetitle}}}
+\makeevenfoot{myheadings}{\scshape{\tiny{\thetitle}}}{}{\thepage}
+\else
+%patent office mode
+\pagestyle{myheadings}
+\makeoddhead{myheadings}{}{}{\scriptsize{\patentNumber}}
+\makeevenhead{myheadings}{}{}{\scriptsize{\patentNumber}}
+\makeoddfoot{myheadings}{}{\thepage}{}
+\makeevenfoot{myheadings}{}{\thepage}{}
+\fi
+
+\begin{center}\textbf{\MakeUppercase{ \thetitle }}\end{center}
+
+% don't show section numbers!
+% let them go into the "TOC" (even though we won't print it) because
+% this allows the PDF file to contain the appropriate bookmarks
+
+
+\setcounter{secnumdepth}{-1}
+\setcounter{tocdepth}{1}
+\setbeforesecskip{0pc}
+\setaftersecskip{0pc}
+\parskip=10pt
+
+\fi
 
 }
 
@@ -249,19 +296,32 @@
 \def\inventorListPhone#1{\csname inventorphone#1\endcsname}
 
 
+
+
+% Claims are the only area where I still use labels, hence the
+
+% FIGURES HAVE NO CAPTIONS and numbered by the \thefigure counter
+\captiondelim{}
+\counterwithout{figure}{section}
+\counterwithout{figure}{subsection}
+\renewcommand{\fnum@figure}{\huge{\textbf{FIG.~\thefigure} \hspace{0.25in}}}
+
+
 % COMMAND TO CREATE A CENTERED FIGURE 
 \newcommand{\pfigure}[4]{
 \begin{figure}[p]
 \centering
 \def\svgwidth{#4\textwidth}
 \import{#2}{#3}
-\vspace*{2\baselineskip}
+\vspace*{1\onelineskip}
 \caption{}
-\vspace*{2\baselineskip}
+\vspace*{2\onelineskip}
 \label{#1}
 \end{figure}
 }
 
+
+%\setsecheadstyle{\centering\color{blue}\Large\bfseries}
 % Counter to number paragraphs
 \newcounter{parnum}
 
@@ -281,15 +341,6 @@
 \marginpar{\tiny\textcolor{red}{ \begin{flushleft} #1 \end{flushleft}}}
 \end{SingleSpace}
 }
-
-\renewcommand{\fnum@figure}{\bfseries{\Huge{FIG.~\thefigure}}}
-
-% Section Style
-\titleformat*{\section}{\centering\large\bfseries}
-\titleformat*{\subsection}{\large\scshape}
-
-\newcommand{\pSection}[1]{\section*{\underline{\MakeUppercase{#1}}}}
-\newcommand{\pSubsection}[1]{\subsection*{#1}}
 
 \endinput
 %%

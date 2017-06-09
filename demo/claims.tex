@@ -1,17 +1,25 @@
 
-\patentClaimsStart
+\pSection{Claims}
 
-\beginClaim{Claim1}
+\noindent What is claimed is
 
-This is an independent claim.
+  \begin{enumerate}
 
-\beginClaim{Claim2}
+  \item[\clabel{ic}] This is an indendent claim.
+  \item[\clabel{aic}] This is another independent claim.
+  \item[\clabel{bcl}] This is a dependent claim upon \cref{ic}.
 
-The method of \claimRef{Claim1} further comprising\ldots{}
+  \end{enumerate}
 
-\beginClaim{Claim3}
-
-There is much more to say.
-
-\patentClaimsEnd
-
+% \makeatletter
+% \def\namedlabel#1#2{\begingroup
+   % \def\@currentlabel{#2}%
+   % \label{#1}\endgroup
+% }
+% \makeatother
+% \section*{Definitions}
+% \begin{description}
+    % \item [\namedlabel{itm:vehicle}{Vehicle}] Something
+    % \item [\namedlabel{itm:bus}{Bus}] A type of \ref{itm:vehicle}
+    % \item [\namedlabel{itm:car}{Car}] A type of \ref{itm:vehicle} smaller than a \ref{itm:bus}
+% \end{description}

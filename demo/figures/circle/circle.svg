@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <defs>
+        <linearGradient id="linearGradient224" x1="166.5" y1="109.0"
+            x2="166.5" y2="280.0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#f2001d"/>
+            <stop offset="1.0" stop-color="#27f0f0"/>
+        </linearGradient>
+    </defs>
+    <g>
+        <g latexdraw:type="circle" id="id224">
+            <circle cx="166.5" cy="194.5" r="90.5"
+                latexdraw:borderPos="inner" stroke-width="10.0"
+                stroke="black" fill="url(#linearGradient224)"/>
+            <circle cx="166.5" cy="194.5" r="90.5" stroke="#a2cac9"
+                stroke-width="6.0" fill="none" latexdraw:type="dbleborders"/>
+        </g>
+        <g latexdraw:type="line" id="id226">
+            <line x1="142.0" x2="127.0" y1="103.0" y2="50.0"
+                stroke-width="2.0" stroke="black" latexdraw:rotationAngle="0.0"/>
+        </g>
+        <g latexdraw:type="text" id="id227" font-family="Dialog"
+            fill="black" font-size="18" latexdraw:x="119.0">
+            <text x="119.0" y="45.0"><![CDATA[c:A]]></text>
+        </g>
+    </g>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:displayBorders>false</latexdraw:displayBorders>
+            <latexdraw:autoAdjust>true</latexdraw:autoAdjust>
+            <latexdraw:ppc>50</latexdraw:ppc>
+            <latexdraw:zoom>2.75</latexdraw:zoom>
+            <latexdraw:unit>cm</latexdraw:unit>
+            <latexdraw:classicGrid>false</latexdraw:classicGrid>
+            <latexdraw:gridGap>9</latexdraw:gridGap>
+            <latexdraw:code>0</latexdraw:code>
+            <latexdraw:displayGrid>true</latexdraw:displayGrid>
+            <latexdraw:magneticGrid>false</latexdraw:magneticGrid>
+            <latexdraw:autoUpdate>true</latexdraw:autoUpdate>
+            <latexdraw:version>2.0.8</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1855</latexdraw:width>
+                <latexdraw:height>1028</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>65</latexdraw:x>
+                <latexdraw:y>52</latexdraw:y>
+            </latexdraw:position>
+            <latexdraw:dividerPosition>0.5148247978436657</latexdraw:dividerPosition>
+            <latexdraw:displayCodePanel>true</latexdraw:displayCodePanel>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:delimitorOpacity>93</latexdraw:delimitorOpacity>
+        </latexdraw:metadata>
+    </metadata>
+</svg>

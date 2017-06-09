@@ -1,0 +1,33 @@
+\centering
+\begin{tikzpicture}[x=1.00mm, y=1.00mm, inner xsep=0pt, inner ysep=0pt, outer xsep=0pt, outer ysep=0pt]
+\path[line width=0mm] (-2.00,8.00) rectangle +(104.00,44.00);
+\definecolor{F}{rgb}{1,1,1}
+\path[fill=F] (0.00,10.00) rectangle +(100.00,40.00);
+\definecolor{L}{rgb}{0,0,0}
+\path[line width=0.30mm, draw=L] (17.00,25.00) arc (-90:90:5.00mm);
+\path[line width=0.30mm, draw=L] (12.00,35.00) arc (90:270:5.00mm);
+\path[line width=0.30mm, draw=L] (12.00,35.00) -- (17.00,35.00);
+\path[line width=0.30mm, draw=L] (12.00,25.00) -- (17.00,25.00);
+% \draw(14.50,29.00) node[anchor=base]{Input};
+\path[line width=0.30mm, draw=L] (22.00,30.00) -- (32.00,30.00);
+\definecolor{F}{rgb}{0,0,0}
+\path[line width=0.30mm, draw=L, fill=F] (32.00,30.00) -- (29.20,30.70) -- (29.20,29.30) -- (32.00,30.00) -- cycle;
+\definecolor{F}{rgb}{1,1,1}
+\path[line width=0.30mm, draw=L, fill=F] (32.00,25.00) rectangle +(35.00,10.00);
+\draw(49,30) node[anchor=center]{\underline{box}};
+\path[line width=0.30mm, draw=L] (87.00,25.00) arc (-90:90:5.00mm);
+\path[line width=0.30mm, draw=L] (83.00,35.00) arc (90:270:5.00mm);
+\path[line width=0.30mm, draw=L] (82.00,35.00) -- (87.00,35.00);
+\path[line width=0.30mm, draw=L] (82.00,25.00) -- (87.00,25.00);
+% \draw(84.50,29.00) node[anchor=base]{Output};
+\path[line width=0.30mm, draw=L] (67.00,30.00) -- (77.00,30.00);
+\definecolor{F}{rgb}{0,0,0}
+\path[line width=0.30mm, draw=L, fill=F] (77.00,30.00) -- (74.20,30.70) -- (74.20,29.30) -- (77.00,30.00) -- cycle;
+\path[line width=0.30mm, draw=L] (17.00,35.00) -- (26.00,42.00);
+\draw(26.00,41.00) node[anchor=base west]{input};
+\path[line width=0.30mm, draw=L] (41.00,25.00) -- (50.00,15.00);
+\draw(50.00,14.00) node[anchor=base west]{processor};
+\path[line width=0.30mm, draw=L] (85.00,20.00) -- (82.00,25.00);
+\draw(86
+.00,19.00) node[anchor=base west]{output};
+\end{tikzpicture}%
