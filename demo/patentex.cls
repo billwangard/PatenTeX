@@ -4,8 +4,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}
 
-\newif\ifDraft
-\Draftfalse
+\newif\ifDraft\Draftfalse
 
 \ProvidesClass{patentex}[2017/05/30  Patent Application Class]
 \DeclareOption{draft}{\Drafttrue}
@@ -23,13 +22,14 @@
 	                  \def\assigneeName{#1}
 	                  \def\assigneeAddress{#2}
 	                  \def\assigneeCity{#3}
-	                  \def\assigneePhone{#4}}
+	                  \def\assigneePhone{#4}
+                          \def\assigneeTitle{Assignee}}
 \newcommand{\Lawyer}[5]{\def\lawyerName{#1}
 	                \def\lawyerAddress{#2}
 	                \def\lawyerCity{#3}
 	                \def\lawyerPhone{#4}
-	                \def\lawyerNumber{#5}}
-
+	                \def\lawyerNumber{#5}
+                        \def\lawyerTitle{Attorney}}
 
 % PAGE SIZE SETTINGS
 \def\skipline{\vspace{\baselineskip}}
@@ -59,10 +59,15 @@
 \usepackage[utf8]{inputenc}
 %\usepackage{palatino}
 
-\usepackage[scaled]{helvet}
-\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage{XCharter}
 \usepackage[T1]{fontenc}
 
+% HELVETICA LIKE
+%\usepackage[scaled]{helvet}
+%\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+%\usepackage[T1]{fontenc}
+
+% SANS SERIF FONT
 %\usepackage{tgheros}
 % \usepackage[default,osfigures,scale=0.95]{opensans} %% Alternatively
 %% use the option 'defaultsans' instead of 'default' to replace the
@@ -84,6 +89,7 @@
 \usepackage{tabularx}
 \usepackage{setspace}
 \usepackage{caption}
+\usepackage{fancyhdr}
 \captionsetup[figure]{labelsep=none}
 \usepackage[normalem]{ulem}
 \usetikzlibrary{arrows,positioning,fit,shapes,calc}
@@ -96,7 +102,6 @@
 \DeclareRobustCommand{\alabel}[1]{%
    \refstepcounter{alabelno}%
    \thealabelno\label{#1}}
-
 
 % Labels for the figure .tex files
 \def\alab#1{\alabel{#1}}
@@ -119,6 +124,7 @@
 \def\cref#1{claim~\ref{#1}}
 \def\Cref#1{Claim~\ref{#1}}
 
+\pagestyle{fancy}
 
 % Inventor(s) on Title Sheet
 \def\inventorTitleName{\ifnum\the\@inventornumber>1{Inventors}\else{Inventor}\fi}
@@ -146,19 +152,35 @@
 \ifx\lawyerEmail\undefined\global\edef\lawyerEmail{~}\fi
 \ifx\patentDocumentVersion\undefined\global\edef\patentDocumentVersion{0.0}\fi
 \ifx\thedate\undefined\global\edef\thedate{\today}\fi
+\ifx\lawyerTitle\undefined\global\edef\lawyerTitle{~}\fi
+\ifx\assigneeTitle\undefined\global\edef\assigneeTitle{~}\fi
+
+%\pagenumbering{alph}
 
 \renewcommand{\maketitle}{
+  \lhead{}
+  \chead{}
+  \rhead{\patentNumber}
+  \lfoot{}
+  \cfoot{\thepage}
+  \rfoot{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+
   \begin{titlepage}
     \frontPage
     \inventorPage
   \end{titlepage}
+
   \newpage
-%\setcounter{secnumdepth}{-1}
-%\setcounter{tocdepth}{1}
-%\setbeforesecskip{0pc}
-%\setaftersecskip{0pc}
-%\parskip=10pt
-\begin{center}\Large\scshape{\bfseries{\patentTitle}}\end{center}
+
+   \setcounter{page}{3}
+
+  % Paragraph separation
+  \parskip=0.5\baselineskip plus 2 pt minus 2 pt
+
+  \begin{center}\Large\scshape{\bfseries{\patentTitle}}\end{center}
+
 }
 
 \newcommand{\frontPage}
@@ -183,8 +205,8 @@
 \vfill
 
 \setlength{\parindent}{0em} 
-\makebox[0.5\textwidth][l]{\textbf{Attorney}}%
-\makebox[0.5\textwidth][r]{\textbf{Assignee}}\\%
+\makebox[0.5\textwidth][l]{\textbf{\lawyerTitle}}%
+\makebox[0.5\textwidth][r]{\textbf{\assigneeTitle}}\\%
 \makebox[0.5\textwidth][l]{\lawyerName}%
 \makebox[0.5\textwidth][r]{\assigneeName}\\%
 \makebox[0.5\textwidth][l]{\lawyerAddress}%
@@ -193,13 +215,15 @@
 \makebox[0.5\textwidth][r]{\assigneeCity}\\%
 \makebox[0.5\textwidth][l]{\lawyerPhone}%
 \makebox[0.5\textwidth][r]{\assigneePhone}\\%
-\makebox[0.5\textwidth][l]{ID: \lawyerNumber}
+\makebox[0.5\textwidth][l]{\lawyerNumber}
 \setlength{\parindent}{1em}
 }
 
 \newcommand{\inventorPage}
 {
 \newpage
+
+
 \doublespacing
 
 %% INVENTOR OR INVENTORS?
@@ -290,6 +314,15 @@
 
 \newcommand{\pSection}[1]{\section*{\underline{\MakeUppercase{#1}}}}
 \newcommand{\pSubsection}[1]{\subsection*{#1}}
+
+
+\AtBeginDocument{ 
+  \hypersetup{
+    pdftitle = {\@title},
+    pdfauthor = {\@author}
+  }
+}
+
 
 \endinput
 %%
