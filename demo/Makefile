@@ -1,13 +1,15 @@
 TEX=pdflatex -shell-excape -interaction=nonstopmode -file-line-error
 
-all: PatApp.pdf
+NAME=PatApp
+
+all: $(NAME).pdf
 
 FILES=*.tex *.cls
 
-PatApp.pdf: $(FILES) patentex.cls
-	$(TEX) PatApp.tex
-	$(TEX) PatApp.tex
-	$(TEX) PatApp.tex
+$(NAME).pdf: $(FILES) patentex.cls
+	$(TEX) $(NAME).tex
+	$(TEX) $(NAME).tex
+	$(TEX) $(NAME).tex
 
 clean:
 	rm -f *.out *.aux *.log
