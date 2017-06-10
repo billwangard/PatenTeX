@@ -9,7 +9,7 @@
 \ProvidesClass{patentex}[2017/05/30  Patent Application Class]
 \DeclareOption{draft}{\Drafttrue}
 \ProcessOptions
-\LoadClass{report}[1996/10/24]
+\LoadClassWithOptions{report}[1996/10/24]
 
 \usepackage{ifpdf}
 
@@ -56,11 +56,19 @@
 \usepackage{amsmath}
 \usepackage{memhfixc}
 \usepackage{xspace}
-\usepackage[utf8]{inputenc}
-%\usepackage{palatino}
 
-\usepackage{XCharter}
+%\usepackage[T1]{fontenc}
+%\usepackage[default]{gillius}
+
+\usepackage[sfdefault]{quattrocento}
 \usepackage[T1]{fontenc}
+
+
+%\usepackage[sfdefault]{cabin}
+%\usepackage[T1]{fontenc}
+
+%\usepackage{XCharter}
+%\usepackage[T1]{fontenc}
 
 % HELVETICA LIKE
 %\usepackage[scaled]{helvet}
@@ -79,6 +87,7 @@
 % \usepackage[T1]{fontenc}
 
 
+%\usepackage[nofiglist,nomarkers]{endfloat}
 \usepackage{pgf,tikz}
 \usepackage{import}
 \usepackage[figuresright]{rotating}
@@ -274,7 +283,7 @@
 \def\inventorListPhone#1{\csname inventorphone#1\endcsname}
 
 
-% COMMAND TO CREATE A CENTERED FIGURE 
+% COMMAND TO CREATE A CENTERED FIGURE 
 \newcommand{\pfigure}[4]{
 \begin{figure}[p]
 \centering

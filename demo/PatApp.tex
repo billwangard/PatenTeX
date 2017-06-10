@@ -1,17 +1,19 @@
-\documentclass{patentex}
+\documentclass[12pt]{patentex}
 
 \begin{document}
 
- \import{}{inventors-and-title}
- \maketitle
- \import{}{background}
- \import{}{objects}
+ \import{}{inventors-and-title}       % LOAD INVENTORS and TITLE
+ 
+ \maketitle                           % KEEP THIS HERE
+ 
+ \import{}{background}                % BACKGROUND MATERIAL
+ \import{}{objects}                    
  \import{}{brief-summary}
- \import{}{brief-desc-drawings}
- \import{}{detailed-desc-invention}
+ \import{}{brief-desc-drawings}       % FIRST REFERNCE TO FIGURES
+ \import{}{detailed-desc-invention}   
  \import{}{detailed-desc-pref-embod}
  \import{}{claims}
  \import{}{abstract}
- \import{}{load-figures}
+ \import{}{load-figures}              % Load figures at the end
 
 \end{document}
