@@ -9,7 +9,7 @@
 \ProvidesClass{patentex}[2017/05/30  Patent Application Class]
 \DeclareOption{draft}{\Drafttrue}
 \ProcessOptions
-\LoadClass[12pt]{report}[1996/10/24]
+\LoadClass{report}[1996/10/24]
 
 \usepackage{ifpdf}
 
@@ -37,8 +37,8 @@
 
 \ifpdf
 \usepackage[pdftex]{graphicx}
-%\usepackage[hyperindex=true,pdfusetitle,bookmarks=true,extension=pdf,linkcolor=black,colorlinks=true,hyperfootnotes=true,pdffitwindow=true,pdftoolbar=true,pdfmenubar=true,debug=false,pagebackref=true ]{hyperref}
-\usepackage[extension=pdf,colorlinks=true,linkcolor=black,backref=true]{hyperref}
+\usepackage[hyperindex=true,pdfusetitle,bookmarks=true,extension=pdf,linkcolor=black,colorlinks=true,hyperfootnotes=true,pdffitwindow=true,pdftoolbar=true,pdfmenubar=true,debug=false,pagebackref=true ]{hyperref}
+%\usepackage[extension=pdf,colorlinks=true,linkcolor=black,backref=true]{hyperref}
 %\usepackage[extension=pdf,linkcolor=black,colorlinks=true,debug=false]{hyperref}
 \DeclareGraphicsExtensions{ .pdf, .jpg, .tif}
 \else
@@ -47,9 +47,9 @@
 \fi
 
 \ifDraft
-\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in,showframe]{geometry}
+\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in,showframe,headheight=20pt]{geometry}
 \else
-\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1in]{geometry}
+\usepackage[paper=letterpaper,hmargin=1.0in,vmargin=1.5in,headheight=20pt]{geometry}
 \fi
 \usepackage{titlesec}
 \usepackage{lipsum}
@@ -78,7 +78,7 @@
 % \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 % \usepackage[T1]{fontenc}
 
-\usepackage{babel}
+
 \usepackage{pgf,tikz}
 \usepackage{import}
 \usepackage[figuresright]{rotating}
@@ -169,6 +169,7 @@
 
   \begin{titlepage}
     \frontPage
+    \newpage
     \inventorPage
   \end{titlepage}
 
@@ -221,15 +222,15 @@
 
 \newcommand{\inventorPage}
 {
-\newpage
 
-
+% Double spacing
 \doublespacing
 
 %% INVENTOR OR INVENTORS?
 \begin{center}
 \textbf{\underline{\MakeUppercase{\inventorTitleName}}}
 \end{center}
+
 
 %%% TABLE OF INVENTORS
 \par\noindent
@@ -239,18 +240,18 @@
 \makebox[0.2\textwidth][r]{\textbf{Phone}}%
 
 \normalsize{
-\@inventornumber=1
-\loop
-\expandafter\ifx\csname inventorname \the\@inventornumber\endcsname\relax
- \else
-   \par\noindent
-   %\makebox[0.04\textwidth][l]{\the\@inventornumber.}%
-   \makebox[0.25\textwidth][l]{\inventorListName{\the\@inventornumber}}%
-   \makebox[0.55\textwidth][l]{\inventorListAddress{\the\@inventornumber},~\inventorListCity{\the\@inventornumber}}%
-   \makebox[0.2\textwidth][r]{\inventorListPhone{\the\@inventornumber}}%
-   \advance\@inventornumber by 1
-   \repeat
-}
+  \@inventornumber=1
+  \loop
+  \expandafter\ifx\csname inventorname \the\@inventornumber\endcsname\relax
+   \else
+     \par\noindent
+     %\makebox[0.04\textwidth][l]{\the\@inventornumber.}%
+     \makebox[0.25\textwidth][l]{\inventorListName{\the\@inventornumber}}%
+     \makebox[0.55\textwidth][l]{\inventorListAddress{\the\@inventornumber},~\inventorListCity{\the\@inventornumber}}%
+     \makebox[0.2\textwidth][r]{\inventorListPhone{\the\@inventornumber}}%
+     \advance\@inventornumber by 1
+     \repeat
+  }
 
 }
 
