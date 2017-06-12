@@ -60,15 +60,18 @@
 %\usepackage[T1]{fontenc}
 %\usepackage[default]{gillius}
 
-\usepackage[sfdefault]{quattrocento}
-\usepackage[T1]{fontenc}
+%\usepackage[sfdefault]{quattrocento}
+%\usepackage[T1]{fontenc}
+
+%\renewcommand*\rmdefault{dayrom}
+%\usepackage[T1]{fontenc}
 
 
 %\usepackage[sfdefault]{cabin}
 %\usepackage[T1]{fontenc}
 
-%\usepackage{XCharter}
-%\usepackage[T1]{fontenc}
+\usepackage{XCharter}
+\usepackage[T1]{fontenc}
 
 % HELVETICA LIKE
 %\usepackage[scaled]{helvet}
@@ -76,6 +79,7 @@
 %\usepackage[T1]{fontenc}
 
 % SANS SERIF FONT
+
 %\usepackage{tgheros}
 % \usepackage[default,osfigures,scale=0.95]{opensans} %% Alternatively
 %% use the option 'defaultsans' instead of 'default' to replace the
