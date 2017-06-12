@@ -4,7 +4,7 @@ NAME=PatApp
 
 all: $(NAME).pdf
 
-FILES=*.tex *.cls
+FILES=sections/*.tex *.tex *.cls
 
 $(NAME).pdf: $(FILES) patentex.cls
 	$(TEX) $(NAME).tex
