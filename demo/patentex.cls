@@ -70,6 +70,16 @@
 %\usepackage[sfdefault]{cabin}
 %\usepackage[T1]{fontenc}
 
+% Like Times
+%\usepackage{mathptmx}
+%\usepackage[T1]{fontenc}
+
+% A nice monospace font
+%\usepackage{GoMono}
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+%\usepackage[T1]{fontenc}
+
+% Nice serif font
 \usepackage{XCharter}
 \usepackage[T1]{fontenc}
 
@@ -170,7 +180,7 @@
 
 %\pagenumbering{alph}
 
-\renewcommand{\maketitle}{
+\renewcommand{\maketitle}[1]{
   \lhead{}
   \chead{}
   \rhead{\patentNumber}
@@ -183,9 +193,9 @@
   \begin{titlepage}
     \frontPage
     \newpage
-    \inventorPage
-  \end{titlepage}
+    \inventorPage{#1}
 
+  \end{titlepage}
   \newpage
 
    \setcounter{page}{3}
@@ -233,7 +243,7 @@
 \setlength{\parindent}{1em}
 }
 
-\newcommand{\inventorPage}
+\newcommand{\inventorPage}[1]
 {
 
 % Double spacing
@@ -252,7 +262,8 @@
 \makebox[0.55\textwidth][l]{\textbf{Address}}%
 \makebox[0.2\textwidth][r]{\textbf{Phone}}%
 
-\normalsize{
+
+#1{
   \@inventornumber=1
   \loop
   \expandafter\ifx\csname inventorname \the\@inventornumber\endcsname\relax
@@ -324,7 +335,7 @@
 
 % Section Style
 \titleformat*{\section}{\centering\large\bfseries}
-\titleformat*{\subsection}{\large\scshape}
+\titleformat*{\subsection}{\large\bfseries}
 
 \newcommand{\pSection}[1]{\section*{\underline{\MakeUppercase{#1}}}}
 \newcommand{\pSubsection}[1]{\subsection*{#1}}
